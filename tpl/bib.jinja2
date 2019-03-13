@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AIA Demo Runner - bibliography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Bibliography</h1>
+
+        <ul>
+            {% for entry in bib %}
+                <li>
+                    <b><a href="{{ entry.link }}">{{ entry.title }}.</a></b> {{ entry.type }}, {{ entry.year }}<br/>
+                    {{ "; ".join(entry.authors) }}.<br/>
+                    {% if entry.venue != "" %}
+                        {{ entry.venue }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

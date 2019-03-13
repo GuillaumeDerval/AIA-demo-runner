@@ -4,6 +4,7 @@ import aiohttp_jinja2
 import jinja2
 from aiohttp import web
 
+from bib_export import bib_all
 from demo_list import demo_handlers
 
 @aiohttp_jinja2.template('index.jinja2')
@@ -16,7 +17,7 @@ async def index(request):
 app = web.Application()
 aiohttp_jinja2.setup(app, loader=jinja2.FileSystemLoader('tpl'))
 
-routes = [web.get('/', index)]
+routes = [web.get('/', index), web.get("/bib", bib_all)]
 
 for func in demo_handlers:
     for path in func.paths:
