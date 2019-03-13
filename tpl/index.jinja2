@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AIA Demo Runner - index page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Welcome on the AIA demo runner</h1>
+        <p>This webpage only gives some stats about the currently running demos. Please go to the AIA website to try these demos.</p>
+        <p>The current load of the machine is {{ load }}.</p>
+
+        <h2>Demos available:</h2>
+        <ul>
+            {% for d in demos %}
+                <li>
+                    <b><a href="{{ d.paths[0] }}">{{ d.name }}</a></b>
+                    <p>{{ d.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
